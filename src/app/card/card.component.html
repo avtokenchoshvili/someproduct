@@ -2,7 +2,7 @@
 <ul>
     <a ></a>
     <li><img [src]="item.ImageUrl" alt="">
-    </li>  <li><a href="">{{item.Name}}</a></li>
+    </li>  <li><a routerLink="/" [queryParams]="{catId: item.Id}">{{item.Name}}</a></li>
     
 </ul>
 

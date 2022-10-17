@@ -1,4 +1,6 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable, switchMap } from 'rxjs';
 import { Categories } from '../models/categories/categories.model';
 import { Products } from '../models/products/products.model';
 import { ServisesService } from '../servises.service';
@@ -10,27 +12,22 @@ import { ServisesService } from '../servises.service';
 })
 export class ProductsCardComponent implements OnInit {
 
-  constructor(private servise:ServisesService) { }
+  constructor(
+    private servise: ServisesService,
+    private _router: ActivatedRoute
+  ) { }
 
-  productList:Products[] = [];
-  arrya:Categories[] = []; 
+  productList$!: Observable<Products[]>;
+  arrya: Categories[] = [];
 
   ngOnInit(): void {
-
-    this.servise.get().subscribe((response:any) =>{
-      this.productList = response;
-     
-          }) 
-      
-     
-      
-      
-
+    this.productList$ = this._router.queryParams.pipe(
+      switchMap(params => {
+        if (!params['catId']) return this.servise.get();
+        return this.servise.get().pipe(
+          map(res => res.filter(el => el.Id == params['catId']))
+        )
+      })
+    )
   }
-
-  
-
-
-
-
 }
