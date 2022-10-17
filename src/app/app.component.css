@@ -1,0 +1,11 @@
+
+.pro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    flex-wrap: wrap;
+    margin: 50px;
+    
+}

@@ -1,0 +1,36 @@
+
+div{
+    display: flex;
+    
+}
+
+div ul{
+    
+  
+    margin: 0;
+    padding: 0;
+}
+
+
+div ul li{
+    align-items: center;
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    margin: 15px;
+   
+
+}
+
+div ul li a{
+   
+    text-decoration: none;
+   
+}
+
+div img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+
+}
