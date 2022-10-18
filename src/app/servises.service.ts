@@ -15,12 +15,12 @@ export class ServisesService {
 
 
 
-  get(): Observable<Products[]> {
+ public get(): Observable<Products[]> {
     let baseUrl: string = `${environment.serverBaseUrl}`;
     return this.http.get<Products[]>(baseUrl);
   }
 
-  getProductById(): Observable<Categories> {
+  public getProductById(): Observable<Categories> {
     var apiUrl = `https://europroductcms.azurewebsites.net/api/productcategory?fbclid=IwAR0BBG-MpGhnf_xpFfs5gfljahtPw53ILqcZsTxpBFQCfGCoyj4NGA_GqBo/$`;
     return this.http.get<Categories>(apiUrl) as Observable<Categories>;
   }

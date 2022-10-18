@@ -1,1 +1,10 @@
-<p>search works!</p>
+<div class="search-contaier">
+<span>Search</span>
+<input class="form-control" [(ngModel)]="term"  type="text" placeholder="Enter here" name="Search" >
+<div *ngFor = "let item of someArray | filter:term" >
+    <p>
+      {{item.Name}}
+    </p>
+  </div>
+
+</div>

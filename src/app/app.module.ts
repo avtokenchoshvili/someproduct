@@ -10,13 +10,14 @@ import { CardComponent } from './card/card.component';
 
 
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductsCardComponent } from './products-card/products-card.component';
     CardComponent,
     HeaderComponent,
     FooterComponent,
-    ProductsCardComponent
+    ProductsCardComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,9 @@ import { ProductsCardComponent } from './products-card/products-card.component';
     FormsModule,
     HttpClientModule,
     MatCardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

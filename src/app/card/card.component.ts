@@ -11,12 +11,19 @@ import { ServisesService } from '../servises.service';
 })
 export class CardComponent implements OnInit {
   arrya: Categories[] = [];
+  porductList: Products[] = [];
   constructor(private servise: ServisesService) { }
 
   ngOnInit(): void {
     this.servise.getProductById().subscribe((response: any) => {
       this.arrya = response
       console.log(this.arrya)
+
+
+      this.servise.get().subscribe((response:any)=>{
+        this.porductList = response
+        console.log(response)
+      })
 
     })
   }

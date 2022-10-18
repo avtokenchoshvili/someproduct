@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,Output,Input  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
 import { Categories } from '../models/categories/categories.model';
 import { Products } from '../models/products/products.model';
 import { ServisesService } from '../servises.service';
+
+
 
 @Component({
   selector: 'app-products-card',
@@ -11,14 +13,16 @@ import { ServisesService } from '../servises.service';
   styleUrls: ['./products-card.component.css']
 })
 export class ProductsCardComponent implements OnInit {
-
+  public term!:string
   constructor(
     private servise: ServisesService,
-    private _router: ActivatedRoute
+    private _router: ActivatedRoute,
+   
   ) { }
 
-  productList$!: Observable<Products[]>;
-  arrya: Categories[] = [];
+  
+  @Output()  productList$!: Observable<Products[]>;
+ public arrya: Categories[] = [];
 
   ngOnInit(): void {
     this.productList$ = this._router.queryParams.pipe(
@@ -30,4 +34,7 @@ export class ProductsCardComponent implements OnInit {
       })
     )
   }
+
+
+
 }
